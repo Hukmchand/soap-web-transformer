@@ -1,0 +1,16 @@
+import os
+
+# Define the path to your folder containing the projects
+folder_path = '/path/to/your/folder'
+
+# Loop through each project in the folder
+for project_name in os.listdir(folder_path):
+    project_path = os.path.join(folder_path, project_name)
+    
+    # Check if the current item in the folder is a directory
+    if os.path.isdir(project_path):
+        # Change directory to the project folder
+        os.chdir(project_path)
+        
+        # Execute the Maven clean command
+        os.system('mvn clean')
